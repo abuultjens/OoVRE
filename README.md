@@ -5,7 +5,7 @@
 
 ## Subsetting feature matrices
 
-    sh subsetter.sh [feature_matrix.csv] [target_file.csv] [OUTFILE.csv] [fofn.txt]
+    sh subsetter.sh [feature_matrix.csv] [OUTFILE.csv] [fofn.txt]
     
     
 
