@@ -114,6 +114,9 @@
     # Save plot
     plt.savefig('plot.png')
     
+    # Clear plot. Needed if you try to make another plot with the same python instance
+    plt.close()
+    
 
     
     
