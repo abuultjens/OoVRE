@@ -21,18 +21,9 @@
     sh index-checker.sh 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv 
     INDEXES ARE THE SAME   
     
-### Running with actual target file
+### Running classifier with actual target file
     
 #### 353_16s_presence-absence
-
-##### Logistic regression
-
-    cat LGR_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_balanced_accuracy.csv
-    0.7018554876658036
-
-    cat LGR_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_confusion_matrix.csv
-    2131,458
-    424,587
     
 ##### Random forest classifier
 
@@ -53,7 +44,7 @@
     # FP: 57
     # FN: 840      
     
-## Running analyses with randomised target files
+## Running classifier with randomised target files
 
 ### WD
 
