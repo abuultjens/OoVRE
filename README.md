@@ -50,7 +50,7 @@
     accuracy:
     [[0.73333333]]
     
-    #### 353_16s_presence-absence
+#### 353_16s_presence-absence
     
     python RFC_replicator_CLASSIFICATION.py ../353_16s_presence-absence.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
     accuracy:
@@ -60,6 +60,9 @@
     2532,57
     840,171
     
+    # TP: 2532
+    # TN: 171
+    
     # 353_16s_presence-absence.BIN-1
     # actually using BIN-1    
     
@@ -67,21 +70,32 @@
 ### True negatives: random vs actual    
 
     for NUMBER in $(seq 1 100); do
-        TN=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`
-        echo "${TN}" >> rand_353_16s_presence-absence_TN_1-100.csv
+        TP=`cut -f 1 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
+        echo "${TP}" >> rand_353_16s_presence-absence_TP_1-100.csv
+        TN=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`       
+        echo "${TN}" >> rand_353_16s_presence-absence_TN_1-100.csv        
+        FP=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
+        echo "${FP}" >> rand_353_16s_presence-absence_FP_1-100.csv
+        FN=`cut -f 1 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`        
+        echo "${FN}" >> rand_353_16s_presence-absence_FN_1-100.csv
     done        
     
 ### Density plot
 
     # Import the libraries
+    import numpy as np
+    import pandas as pd
     import matplotlib.pyplot as plt
     import seaborn as sns
+    
+    # Read in the data
+    data = pd.read_csv("rand_353_16s_presence-absence_TN_1-100.csv", header=None, index_col=None)
     
     # Density Plot and Histogram of values from random data labels
     sns.distplot(data[0], hist=True, kde=True, bins=int(180/5), color = 'darkblue', hist_kws={'edgecolor':'black'},kde_kws={'linewidth': 4})
     
     # Plot main title
-    plt.suptitle('Density Plot and Histogram of number of true negatives from random data labels', fontsize=14)       
+    plt.suptitle('Density Plot and Histogram of number of true negatives from random data labels', fontsize=16)       
    
     # Plot subtitle
     plt.title('Red dashed line is from the actual data', fontsize=14)
@@ -93,7 +107,7 @@
     plt.ylabel('Density', fontsize=14)
     
     # Add vertical line for value from actual data labels
-    plt.axvline(x=0.85, color='red', linestyle='dashed')
+    plt.axvline(x=171, color='red', linestyle='dashed')
     
     # Save plot
     plt.savefig('plot.png')
