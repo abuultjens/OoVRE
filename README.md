@@ -82,7 +82,7 @@
         echo "${FN}" >> rand_353_16s_presence-absence_FN_1-100.csv
     done        
     
-### Density plot
+### Density plots
 
     # Import the libraries
     import numpy as np
@@ -116,6 +116,9 @@
     
     # Clear plot. Needed if you try to make another plot with the same python instance
     plt.close()
+    
+#### Balanced accuracy
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_balanced_accuracy_1-100_plot.png)    
     
 #### True positives
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TP_1-100_plot.png)
