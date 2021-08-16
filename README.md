@@ -143,18 +143,33 @@
     plt.close()
     
 #### Balanced accuracy
+
+    # much better than what is expected by random chance
+
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_balanced_accuracy_1-100_plot.png)    
     
 #### True positives
+
+    # much better than what is expected by random chance
+
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TP_1-100_plot.png)
 
 #### True negatives
+
+    # around what is expected by random chance
+
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TN_1-100_plot.png)
 
 #### False positives
+
+    # worse than what is expected by random chance
+
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FP_1-100_plot.png)
 
 #### False negatives
+
+    # better than what is expected by random chance
+
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)
     
     
