@@ -118,7 +118,7 @@
     plt.close()
     
 #### True positives
-![Image description](https://github.com/abuultjens/FABL-8-Open-Isothermal-Platform/blob/main/FABL-8_schematic_v2.png)
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TP_1-100_plot.png)
     
     
       
