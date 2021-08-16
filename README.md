@@ -1,7 +1,7 @@
 # OoVRE
 
 ## Working directory
-    /Users/abuultjens/Google Drive/OneDrive/PhD/Bioinformatics/2021_Microbiome/Nicole_Isles
+    /home/buultjensa/Nicole_Isles
     
 ## Labels
 
