@@ -22,6 +22,30 @@
     python ~/github/randomise_target/randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-1.csv
     
     
+## Running analyses with randomised target files
+
+### WD
+    /home/buultjensa/Nicole_Isles/rand_353_OoVRE_relative_freq_merged
+    /home/buultjensa/Nicole_Isles/rand_353_OoVRE_all_count_merged
+    /home/buultjensa/Nicole_Isles/rand_353_16s_presence-absence
+    
+### CMDs
+    sh fofn-checker.sh ../seq_1-100.txt 
+    
+    for TAXA in $(cat $1); do
+        python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${TAXA}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${TAXA}_COR-0.0_chi2-all
+       done
+       
+### Running with actual target file
+
+    python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
+    accuracy:
+    [[0.73888889]]
+       
+      
+    
+    
+    
     
 
 
