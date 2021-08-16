@@ -117,7 +117,8 @@
     # Clear plot. Needed if you try to make another plot with the same python instance
     plt.close()
     
-
+#### True positives
+![Image description](https://github.com/abuultjens/FABL-8-Open-Isothermal-Platform/blob/main/FABL-8_schematic_v2.png)
     
     
       
