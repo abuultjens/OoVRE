@@ -94,7 +94,9 @@
     # FP: 57
     # FN: 840  
     
-### True negatives: random vs actual    
+### Combine outfile data to make density plots 
+
+    cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-*_COR-0.0_chi2-all_balanced_accuracy.csv > RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-1-100_COR-0.0_chi2-all_balanced_accuracy.csv
 
     for NUMBER in $(seq 1 100); do
         TN=`cut -f 1 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
