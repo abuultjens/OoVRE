@@ -75,10 +75,13 @@
     2532,57
     840,171
     
-    # TP: 2532
-    # TN: 171
-    # FN: 57
-    # FP: 840  
+    TN FP
+    FN TP
+    
+    # TN: 2532
+    # TP: 171
+    # FP: 57
+    # FN: 840  
     
 ### True negatives: random vs actual    
 
