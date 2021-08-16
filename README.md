@@ -97,7 +97,7 @@
     sns.distplot(data[0], hist=True, kde=True, bins=int(180/5), color = 'darkblue', hist_kws={'edgecolor':'black'},kde_kws={'linewidth': 4})
     
     # Plot main title
-    plt.suptitle('Density Plot and Histogram of number of true negatives from random data labels', fontsize=16)       
+    plt.suptitle('True negatives from random data labels', fontsize=16)       
    
     # Plot subtitle
     plt.title('Red dashed line is from the actual data', fontsize=14)
@@ -112,7 +112,7 @@
     plt.axvline(x=171, color='red', linestyle='dashed')
     
     # Save plot
-    plt.savefig('plot.png')
+    plt.savefig('rand_353_16s_presence-absence_TN_1-100_plot.png')
     
     # Clear plot. Needed if you try to make another plot with the same python instance
     plt.close()
