@@ -119,6 +119,15 @@
     
 #### True positives
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TP_1-100_plot.png)
+
+#### True negatives
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TN_1-100_plot.png)
+
+#### False positives
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FP_1-100_plot.png)
+
+#### False negatives
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)
     
     
       
