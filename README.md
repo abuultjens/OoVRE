@@ -62,6 +62,8 @@
     
     # TP: 2532
     # TN: 171
+    # FN: 57
+    # FP: 840
     
     # 353_16s_presence-absence.BIN-1
     # actually using BIN-1    
