@@ -2,6 +2,11 @@
 
 ## Working directory
     /Users/abuultjens/Google Drive/OneDrive/PhD/Bioinformatics/2021_Microbiome/Nicole_Isles
+    
+## Labels
+
+    CONTROL: 251
+    CASES: 102
 
 ## Subsetting feature matrices
 
