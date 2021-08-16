@@ -57,6 +57,8 @@
     [[0.75083333]]   
     
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_confusion_matrix.csv
+    2532,57
+    840,171
     
     # 353_16s_presence-absence.BIN-1
     # actually using BIN-1    
