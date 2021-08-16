@@ -10,17 +10,20 @@
 
 ## Subsetting feature matrices
 
+    # General command
     sh subsetter.sh [feature_matrix.csv] [OUTFILE.csv] [fofn.txt]
     
+    # Command
     sh subsetter.sh ORIGINAL_397_16s_presence-absence.csv 353_16s_presence-absence.csv 353_cardiac_cc2-CASE-CONTROL_fofn.txt
     
-## Binarising feature matrix
+### Checking that the observation names match between target and data files
+
+    sh ~/github/index-checker/index-checker.sh 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv 
+    INDEXES ARE THE SAME
     
-    python3 ~/github/binarise_floats/binarise_floats.py 353_16s_presence-absence.csv 353_16s_presence-absence.BIN-1 1
+## Running random forest classifier feature importance    
     
-## Running random forest feature importance    
-    
-    python RFR_feat_imp.py target_353_cardiac_cc2-CASE-CONTROL.csv 353_16s_presence-absence.BIN-1.csv RFR_feat_imp_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL.csv
+    python RFC_feat_imp.py target_353_cardiac_cc2-CASE-CONTROL.csv 353_16s_presence-absence.BIN-1.csv RFC_feat_imp_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL.csv
     
 ## Randomising target files
 
@@ -28,7 +31,7 @@
     python randomise_target.py [target_file.csv] [target_file_RAND-1.csv]
 
     # Command
-    python ~/github/randomise_target/randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-1.csv
+    python randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-1.csv
     
     # Running the command in a loop to make 100 random target files
     for NUMBER in $(seq 1 100); do
@@ -39,13 +42,13 @@
 ## Running analyses with randomised target files
 
 ### WD
+
     /home/buultjensa/Nicole_Isles/rand_353_OoVRE_relative_freq_merged
     /home/buultjensa/Nicole_Isles/rand_353_OoVRE_all_count_merged
     /home/buultjensa/Nicole_Isles/rand_353_16s_presence-absence
     
 ### Run the 100 random runs
-    sh fofn-checker.sh ../seq_1-100.txt 
-    
+
     for NUMBER in $(seq 1 100); do
         python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all
        done    
