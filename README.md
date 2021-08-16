@@ -1,5 +1,15 @@
 # OoVRE
 
+## Overview of basic files for machine learning
+
+### target file
+
+Is a two column matrix with a header and index (the first column). The index contains the observation names and the second column contains the labels. File is comma seperated. 
+
+### data feature matrix file
+
+Has both a header line and an index (first column). There can be an unlimited number of columns beyond the index column. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated. 
+
 ## Working directory
     /home/buultjensa/Nicole_Isles
     
@@ -9,6 +19,8 @@
     CASES: 102
 
 ## Subsetting feature matrices
+
+I have writen a simple script that uses the original data feature files into generate subsets feature matrices. For example, the original 16s_presence-absence.csv file has a total of 397 observations but when using the cardiac_cc2 labels there are only 353 observations. This script allows you to subset the larger original feature matrix into a subset matrix that only contains the 353 observations of interest. You just need to provide it with three inputs: the original feature matrix, an ordered list of observation names (called a "file-of-file-names" or fofn) and a name for the new subset matrix outfile.
 
     # General command
     sh subsetter.sh [feature_matrix.csv] [OUTFILE.csv] [fofn.txt]
