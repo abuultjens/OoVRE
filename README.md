@@ -18,7 +18,7 @@
     
 ### Checking that the observation names match between target and data files
 
-    sh ~/github/index-checker/index-checker.sh 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv 
+    sh index-checker.sh 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv 
     INDEXES ARE THE SAME
     
 ## Running random forest classifier feature importance    
@@ -35,7 +35,7 @@
     
     # Running the command in a loop to make 100 random target files
     for NUMBER in $(seq 1 100); do
-        python ~/github/randomise_target/randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv
+        python randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv
     done
     
     
@@ -101,6 +101,8 @@
     done        
     
 ### Density plots
+
+#### Python script to generate density plots  
 
     # Import the libraries
     import numpy as np
