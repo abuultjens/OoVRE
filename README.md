@@ -54,22 +54,10 @@
     done    
        
 ### Running with actual target file
-
-####  353_OoVRE_relative_freq_merged
-
-    python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
-    accuracy:
-    [[0.73888889]]
-    
-#### 353_OoVRE_all_count_merged
-    
-    python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_all_count_merged.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
-    accuracy:
-    [[0.73333333]]
     
 #### 353_16s_presence-absence
 
-##### LGR
+##### Logistic regression
 
     cat LGR_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_balanced_accuracy.csv
     0.7018554876658036
@@ -78,7 +66,7 @@
     2131,458
     424,587
     
-##### RFC
+##### Random forest classifier
 
     python RFC_replicator_CLASSIFICATION.py ../353_16s_presence-absence.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
 
