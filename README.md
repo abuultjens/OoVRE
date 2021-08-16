@@ -29,17 +29,12 @@
     /home/buultjensa/Nicole_Isles/rand_353_OoVRE_all_count_merged
     /home/buultjensa/Nicole_Isles/rand_353_16s_presence-absence
     
-### CMDs
+### Run the 100 random runs
     sh fofn-checker.sh ../seq_1-100.txt 
     
-    for TAXA in $(cat $1); do
-        python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${TAXA}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${TAXA}_COR-0.0_chi2-all
-       done
-       
-       
-       
-    # using BIN-1
-    python RFC_replicator_CLASSIFICATION.py ../353_16s_presence-absence.BIN-1.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${TAXA}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${TAXA}_COR-0.0_chi2-all
+    for NUMBER in $(seq 1 100); do
+        python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all
+       done    
        
 ### Running with actual target file
 
@@ -67,6 +62,12 @@
     # actually using BIN-1    
     
     
+### True negatives: random vs actual    
+    for NUMBER in $(seq 1 100); do
+       TN=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`
+       echo "${TN}" >> rand_353_16s_presence-absence_TN_1-100.csv
+    done        
+    
 ### Density plot
 
     # Import the libraries
@@ -76,17 +77,28 @@
     # Density Plot and Histogram of values from random data labels
     sns.distplot(data[0], hist=True, kde=True, bins=int(180/5), color = 'darkblue', hist_kws={'edgecolor':'black'},kde_kws={'linewidth': 4})
     
+    # Plot main title
+    plt.suptitle('Density Plot and Histogram of number of true negatives from random data labels', fontsize=14)       
+   
+    # Plot subtitle
+    plt.title('Red dashed line is from the actual data', fontsize=14)
+    
+    # Add X-axis label
+    plt.xlabel('Number of true negatives', fontsize=14)
+    
+    # Add Y-axis label
+    plt.ylabel('Density', fontsize=14)
+    
     # Add vertical line for value from actual data labels
-    plt.axvline(x=0.85)
+    plt.axvline(x=0.85, color='red', linestyle='dashed')
     
     # Display plot
-    plt.show()
+    #plt.show()
     
-### True negatives: random vs actual    
-    for NUMBER in $(seq 1 100); do
-       TN=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`
-       echo "${TN}" >> rand_353_16s_presence-absence_TN_1-100.csv
-    done    
+    # Save plot
+    plt.savefig('plot.png')
+    
+
     
     
       
