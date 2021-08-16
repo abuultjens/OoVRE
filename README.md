@@ -19,7 +19,16 @@
     
 ## Randomising target files
 
+    # General command
+    python randomise_target.py [target_file.csv] [target_file_RAND-1.csv]
+
+    # Command
     python ~/github/randomise_target/randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-1.csv
+    
+    # Running the command in a loop to make 100 random target files
+    for NUMBER in $(seq 1 100); do
+        python ~/github/randomise_target/randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv
+    done
     
     
 ## Running analyses with randomised target files
@@ -53,8 +62,9 @@
 #### 353_16s_presence-absence
     
     python RFC_replicator_CLASSIFICATION.py ../353_16s_presence-absence.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
-    accuracy:
-    [[0.75083333]]   
+
+    cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_balanced_accuracy.csv
+    0.5735616216978245
     
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_confusion_matrix.csv
     2532,57
@@ -63,11 +73,7 @@
     # TP: 2532
     # TN: 171
     # FN: 57
-    # FP: 840
-    
-    # 353_16s_presence-absence.BIN-1
-    # actually using BIN-1    
-    
+    # FP: 840  
     
 ### True negatives: random vs actual    
 
