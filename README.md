@@ -71,10 +71,7 @@ I have a script that that iteratively splits the observations into train (90% of
     python RFC_replicator_CLASSIFICATION.py [data_matrix.csv] [target_label.csv] [outfile_name]
 
     # Command
-    python RFC_replicator_CLASSIFICATION.py \
-        353_16s_presence-absence.csv \
-        target_353_cardiac_cc2-CASE-CONTROL.csv \
-        RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
+    python RFC_replicator_CLASSIFICATION.py 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
 
     # Balanced accuracy
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_balanced_accuracy.csv
@@ -124,8 +121,7 @@ A python script is used to generate 100 new target files each with a random resh
 ### Combine outfile data to make density plots 
 
     # make balanced_accuracy combined outfile
-    cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-*_COR-0.0_chi2-all_balanced_accuracy.csv \
-    > RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-1-100_COR-0.0_chi2-all_balanced_accuracy.csv
+    cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-*_COR-0.0_chi2-all_balanced_accuracy.csv > RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-1-100_COR-0.0_chi2-all_balanced_accuracy.csv
 
     # make combined outfiles from the confusion matrix outfiles
     for NUMBER in $(seq 1 100); do
