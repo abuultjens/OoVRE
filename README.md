@@ -206,7 +206,9 @@ Density plots are used to graphically how different or similar the values from t
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)
     
+## Summary
 
+The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. The next step is to look into the model and find out what features are allowing the model to make better predictions with the actual labels compared to randomised labels.
     
     
 
