@@ -34,15 +34,12 @@ Has both a header line (first row) and an index (first column). There can be an 
     AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTAAATTAAGTCAGGTGTGAAAGTTCGGGGCTCAACCCCGTGATTGCACCTGATACTGATAAACTAGAGTGTTGGAGAGGTAAGTGGAATTCCTAG,0,0,0
     AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTCTGTTAAGTCAGATGTGAAAGGTTAGGGCTCAACCCTGAACGTGCATCTGATACTGGCAGACTTGAGTATGGAAGAGGTAAGTGGAATTCCTAG,0,0,0
 
-## Working directory
-    /home/buultjensa/Nicole_Isles
-    
-## Labels
+## Running with 353 observations (cardiac_cc2-CASE-CONTROL labels)
 
-    CONTROL: 251
-    CASES: 102
+### Working directory
+    /home/buultjensa/Nicole_Isles  
 
-## Subsetting feature matrices
+### Subsetting feature matrices
 
 I have writen a simple script that uses the original data feature files into generate subsets feature matrices. For example, the original 16s_presence-absence.csv file has a total of 397 observations but when using the cardiac_cc2 labels there are only 353 observations. This script allows you to subset the larger original feature matrix into a subset matrix that only contains the 353 observations of interest. You just need to provide it with three inputs: the original feature matrix, an ordered list of observation names (called a "file-of-file-names" or fofn) and a name for the new subset matrix outfile.
 
@@ -56,6 +53,11 @@ I have writen a simple script that uses the original data feature files into gen
 
     sh index-checker.sh 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv 
     INDEXES ARE THE SAME   
+    
+### Class labels
+
+    CONTROL: 251
+    CASES: 102    
     
 ### Running classifier
     
