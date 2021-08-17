@@ -30,9 +30,9 @@ The data feature matrix file has both a header line (first row) and an index (fi
     
     # Example with your data (three observations and three features)
     ID,13724.OoVRE001.14062012,13724.OoVRE001.24062012,13724.OoVRE002.09082013
-    AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCATAAAGGGCGCGTAGGTGGTCTGTTAAGTCAGATGTGAAATGTAAGGGCTCAACCCTTAACGTGCATCTGATACTGGCAGACTTGAGTGCGGAAGAGGCAAGTGGGATTCCTAG,0,0,0
-    AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTAAATTAAGTCAGGTGTGAAAGTTCGGGGCTCAACCCCGTGATTGCACCTGATACTGATAAACTAGAGTGTTGGAGAGGTAAGTGGAATTCCTAG,0,0,0
-    AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTCTGTTAAGTCAGATGTGAAAGGTTAGGGCTCAACCCTGAACGTGCATCTGATACTGGCAGACTTGAGTATGGAAGAGGTAAGTGGAATTCCTAG,0,0,0
+    AACATAG,0,0,0
+    AACATAG,0,0,0
+    AACATAG,0,0,0
 
 ## Running with 353 observations (cardiac_cc2-CASE-CONTROL labels)
 
@@ -130,7 +130,8 @@ A python script is used to generate 100 new target files each with a random resh
     # make combined outfiles from the confusion matrix outfiles
     for NUMBER in $(seq 1 100); do
         # make TN combined outfile
-        TN=`cut -f 1 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
+        TN=`cut -f 1 -d ',' \
+        RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
         echo "${TP}" >> rand_353_16s_presence-absence_TP_1-100.csv       
         # make TP combined outfile
         TP=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`       
