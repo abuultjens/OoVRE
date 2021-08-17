@@ -20,7 +20,7 @@ Is a two column matrix with a header (first row) and index (the first column). T
     
 ### data feature matrix file
 
-Has both a header line (first row) and an index (first column). There can be an unlimited number of columns beyond the index column for n many features. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated.
+The data feature matrix file has both a header line (first row) and an index (first column). There can be an unlimited number of columns beyond the index column for n many features. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated.
 
     # Structure of a data matrix file (three observations and three features)
     INDEX,obs-1,obs-2,obs-3
@@ -41,7 +41,7 @@ Has both a header line (first row) and an index (first column). There can be an 
 
 ### Subsetting feature matrices
 
-I have writen a simple script that uses the original data feature files into generate subsets feature matrices. For example, the original 16s_presence-absence.csv file has a total of 397 observations but when using the cardiac_cc2 labels there are only 353 observations. This script allows you to subset the larger original feature matrix into a subset matrix that only contains the 353 observations of interest. You just need to provide it with three inputs: the original feature matrix, an ordered list of observation names (called a "file-of-file-names" or fofn) and a name for the new subset matrix outfile.
+I have writen a script that uses the original data feature files to generate subsets feature matrices. For example, the original 16s_presence-absence.csv file has a total of 397 observations but when using the cardiac_cc2 labels there are only 353 observations. This script allows you to subset the larger original feature matrix into a subset matrix that only contains the 353 observations of interest. You just need to provide it with three inputs: the original feature matrix, an ordered list of observation names (called a "file-of-file-names" or fofn) and a name for the new subset matrix outfile.
 
     # General command
     sh subsetter.sh [feature_matrix.csv] [OUTFILE.csv] [fofn.txt]
@@ -61,7 +61,7 @@ I have writen a simple script that uses the original data feature files into gen
     
 ### Running classifier
     
-I have a script that I've written that iteratively splits the observations into train (90% of observations) and test (10% of observations) partitions 100 times. In each iteration it builds a model using the train partition and then uses that model to predict the class of the test partition. The value in doing this is that it provides a measure of how well the labels associate with the features of the data. The metric that is used is the balanced accuracy, as this takes into account any imbalances in the classes. 
+I have a script that that iteratively splits the observations into train (90% of observations) and test (10% of observations) partitions 100 times. In each iteration it builds a model using the train partition and then uses that model to predict the class of the test partition. The value in doing this is that it provides a measure of how well the labels associate with the features of the data. The metrics that are used are the balanced accuracy, as this takes into account any imbalances in the classes, and the confusion matrix. 
     
 #### 353_16s_presence-absence
     
@@ -82,9 +82,11 @@ I have a script that I've written that iteratively splits the observations into 
     2532,57
     840,171
     
+    # Structure of a confusion matrix
     TN FP
     FN TP
     
+    # Confusion matrix breakdown
     # TN: 2532
     # TP: 171
     # FP: 57
