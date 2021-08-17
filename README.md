@@ -72,7 +72,9 @@ In order to asses how impressive the balanced accuracy and confusion matrix is, 
 
     /home/buultjensa/Nicole_Isles/rand_353_16s_presence-absence
     
-### Randomising target files
+### Running the classifier with randomly reshuffled target files
+
+A python script is used to generate 100 new target files each with a random reshuffle of the class labels.
 
     # General command
     python randomise_target.py [target_file.csv] [target_file_RAND-1.csv]
@@ -82,14 +84,11 @@ In order to asses how impressive the balanced accuracy and confusion matrix is, 
     
     # Running the command in a loop to make 100 random target files
     for NUMBER in $(seq 1 100); do
+        # make the random reshuffled target file
         python randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv
-    done    
-    
-### Run the 100 random RFC runs
-
-    for NUMBER in $(seq 1 100); do
+        # run the classifier with the random reshuffled target file
         python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all
-    done           
+    done             
     
 ### Combine outfile data to make density plots 
 
