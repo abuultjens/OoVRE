@@ -4,7 +4,7 @@
 
 ### target file
 
-Is a two column matrix with a header (first row) and index (the first column). The index contains the observation names and the second column contains the labels. File is comma seperated. 
+Is a two column matrix with a header (first row) and index (the first column). The index contains the observation names and the second column contains the labels. File is comma separated. 
 
     # Structure of a target file (three observations)
     INDEX,CLASS
@@ -20,7 +20,7 @@ Is a two column matrix with a header (first row) and index (the first column). T
     
 ### data feature matrix file
 
-The data feature matrix file has both a header line (first row) and an index (first column). There can be an unlimited number of columns beyond the index column for n many features. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated.
+The data feature matrix file has both a header line (first row) and an index (first column). There can be an unlimited number of columns beyond the index column for n many features. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma separated.
 
     # Structure of a data matrix file (three observations and three features)
     INDEX,obs-1,obs-2,obs-3
@@ -41,7 +41,7 @@ The data feature matrix file has both a header line (first row) and an index (fi
 
 ### Subsetting feature matrices
 
-I have writen a script that uses the original data feature files to generate subsets feature matrices. For example, the original 16s_presence-absence.csv file has a total of 397 observations but when using the cardiac_cc2 labels there are only 353 observations. This script allows you to subset the larger original feature matrix into a subset matrix that only contains the 353 observations of interest. You just need to provide it with three inputs: the original feature matrix, an ordered list of observation names (called a "file-of-file-names" or fofn) and a name for the new subset matrix outfile.
+I have a script that uses the original data feature files to generate subsets feature matrices. For example, the original 16s_presence-absence.csv file has a total of 397 observations but when using the cardiac_cc2 labels there are only 353 observations. This script allows you to subset the larger original feature matrix into a subset matrix that only contains the 353 observations of interest. You just need to provide it with three inputs: the original feature matrix, an ordered list of observation names (called a "file-of-file-names" or fofn) and a name for the new subset matrix outfile.
 
     # General command
     sh subsetter.sh [feature_matrix.csv] [OUTFILE.csv] [fofn.txt]
@@ -94,7 +94,7 @@ I have a script that that iteratively splits the observations into train (90% of
     
 ## Running classifier with randomised target files
 
-In order to asses how impressive the balanced accuracy and confusion matrix is, an expectation for what we would get from random chance for this data and set of labels is needed. To do this the labels are randomly reassigned to observations and the same analysis as above is rerun. 
+In order to assess how impressive the balanced accuracy and confusion matrix is, an expectation for what we would get from random chance for this data and set of labels is needed. To do this the labels are randomly reassigned to observations and the same analysis as above is rerun. 
 
 ### WD
 
@@ -141,7 +141,7 @@ A python script is used to generate 100 new target files each with a random resh
     
 ### Density plots
 
-Density plots are used to graphically how different or similar the values from the actual labes are from what is obtained by the random reshuffles. 
+Density plots are used to graphically how different or similar the values from the actual labels are from what is obtained by the random reshuffles. 
 
 #### Python script to generate density plots  
 
@@ -210,7 +210,7 @@ Density plots are used to graphically how different or similar the values from t
     
 ## Summary
 
-The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. The next step is to look into the model and find out what features are allowing the model to make better predictions with the actual labels compared to randomised labels.
+The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. The next step is to investigate the model and find out what features are allowing the model to make better predictions with the actual labels compared to randomised labels.
     
     
 
