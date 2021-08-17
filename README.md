@@ -4,11 +4,35 @@
 
 ### target file
 
-Is a two column matrix with a header and index (the first column). The index contains the observation names and the second column contains the labels. File is comma seperated. 
+Is a two column matrix with a header (first row) and index (the first column). The index contains the observation names and the second column contains the labels. File is comma seperated. 
 
+    # Structure of a target file
+    INDEX,CLASS
+    obs-1,0
+    obs-2,0
+    obs-3,1
+    
+    # Example with your data
+    SampleID,cardiac_cc2
+    13724.OoVRE001.14062012,0
+    13724.OoVRE001.24062012,0
+    13724.OoVRE002.09082013,1
+    
 ### data feature matrix file
 
-Has both a header line and an index (first column). There can be an unlimited number of columns beyond the index column. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated. 
+Has both a header line (first row) and an index (first column). There can be an unlimited number of columns beyond the index column for n many features. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated.
+
+    # Structure of a data matrix file
+    INDEX,obs-1,obs-2,obs-3
+    feat-1,0,0,1
+    feat-2,0,1,1
+    feat-3,1,1,0
+    
+    # Example with your data
+    ID,13724.OoVRE001.14062012,13724.OoVRE001.24062012,13724.OoVRE002.09082013
+    AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCATAAAGGGCGCGTAGGTGGTCTGTTAAGTCAGATGTGAAATGTAAGGGCTCAACCCTTAACGTGCATCTGATACTGGCAGACTTGAGTGCGGAAGAGGCAAGTGGGATTCCTAG,0,0,0
+    AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTAAATTAAGTCAGGTGTGAAAGTTCGGGGCTCAACCCCGTGATTGCACCTGATACTGATAAACTAGAGTGTTGGAGAGGTAAGTGGAATTCCTAG,0,0,0
+    AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTCTGTTAAGTCAGATGTGAAAGGTTAGGGCTCAACCCTGAACGTGCATCTGATACTGGCAGACTTGAGTATGGAAGAGGTAAGTGGAATTCCTAG,0,0,0
 
 ## Working directory
     /home/buultjensa/Nicole_Isles
