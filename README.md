@@ -59,9 +59,9 @@ I have a script that uses the original data feature files to generate subsets fe
     CONTROL: 251
     CASES: 102    
     
-### Running classifier
+### Running a random forest classifier
     
-I have a script that that iteratively splits the observations into train (90% of observations) and test (10% of observations) partitions 100 times. In each iteration it builds a model using the train partition and then uses that model to predict the class of the test partition. The value in doing this is that it provides a measure of how well the labels associate with the features of the data. The metrics that are used are the balanced accuracy, as this takes into account any imbalances in the classes, and the confusion matrix. 
+I have a script that that iteratively splits the observations into train (90% of observations) and test (10% of observations) partitions 100 times. In each iteration it builds a model using the train partition and then uses that model to predict the class of the test partition. The value in doing this is that it provides a measure of how well the labels associate with the features of the data. The metrics that are used to assess the predictions are the balanced accuracy, as this takes into account any imbalances in the classes, and the confusion matrix. 
     
 #### 353_16s_presence-absence
     
@@ -71,7 +71,7 @@ I have a script that that iteratively splits the observations into train (90% of
     python RFC_replicator_CLASSIFICATION.py [data_matrix.csv] [target_label.csv] [outfile_name]
 
     # Command
-    python RFC_replicator_CLASSIFICATION.py ../353_16s_presence-absence.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
+    python RFC_replicator_CLASSIFICATION.py 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
 
     # Balanced accuracy
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_balanced_accuracy.csv
@@ -110,12 +110,12 @@ A python script is used to generate 100 new target files each with a random resh
     # Command
     python randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-1.csv
     
-    # Running the command in a loop to make 100 random target files
+    # Running the command in a loop to make 100 random target files and run the classifier
     for NUMBER in $(seq 1 100); do
         # make the random reshuffled target file
         python randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv
         # run the classifier with the random reshuffled target file
-        python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all
+        python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all
     done             
     
 ### Combine outfile data to make density plots 
@@ -141,7 +141,7 @@ A python script is used to generate 100 new target files each with a random resh
     
 ### Density plots
 
-Density plots are used to graphically how different or similar the values from the actual labels are from what is obtained by the random reshuffles. 
+Density plots are used to graphically show how different or similar the values from the actual labels are from what is obtained by the random reshuffles. 
 
 #### Python script to generate density plots  
 
@@ -210,7 +210,7 @@ Density plots are used to graphically how different or similar the values from t
     
 ## Summary
 
-The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. The next step is to investigate the model and find out what features are allowing the model to make better predictions with the actual labels compared to randomised labels.
+The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. The next step is to investigate the model weights and find out what features are allowing the model to make better predictions with the actual labels compared to randomised labels.
     
     
 
