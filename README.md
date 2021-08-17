@@ -33,17 +33,25 @@ I have writen a simple script that uses the original data feature files into gen
     sh index-checker.sh 353_16s_presence-absence.csv target_353_cardiac_cc2-CASE-CONTROL.csv 
     INDEXES ARE THE SAME   
     
-### Running classifier with actual target file
+### Running classifier
+    
+I have a script that I've written that iteratively splits the observations into train (90% of observations) and test (10% of observations) partitions 100 times. In each iteration it builds a model using the train partition and then uses that model to predict the class of the test partition. The value in doing this is that it provides a measure of how well the labels associate with the features of the data. The metric that is used is the balanced accuracy, as this takes into account any imbalances in the classes. 
     
 #### 353_16s_presence-absence
     
 ##### Random forest classifier
 
+    # General command
+    python RFC_replicator_CLASSIFICATION.py [data_matrix.csv] [target_label.csv] [outfile_name]
+
+    # Command
     python RFC_replicator_CLASSIFICATION.py ../353_16s_presence-absence.csv ../target_353_cardiac_cc2-CASE-CONTROL.csv RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all
 
+    # Balanced accuracy
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_balanced_accuracy.csv
     0.5735616216978245
     
+    # Confusion matrix
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_ACTUAL_COR-0.0_chi2-all_confusion_matrix.csv
     2532,57
     840,171
