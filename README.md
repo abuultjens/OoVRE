@@ -6,13 +6,13 @@
 
 Is a two column matrix with a header (first row) and index (the first column). The index contains the observation names and the second column contains the labels. File is comma seperated. 
 
-    # Structure of a target file
+    # Structure of a target file (three observations)
     INDEX,CLASS
     obs-1,0
     obs-2,0
     obs-3,1
     
-    # Example with your data
+    # Example with your data (three observations)
     SampleID,cardiac_cc2
     13724.OoVRE001.14062012,0
     13724.OoVRE001.24062012,0
@@ -22,13 +22,13 @@ Is a two column matrix with a header (first row) and index (the first column). T
 
 Has both a header line (first row) and an index (first column). There can be an unlimited number of columns beyond the index column for n many features. The header line contains the observations and the rows below the header (first row) contain the features, Eg 16s sequences. File is comma seperated.
 
-    # Structure of a data matrix file
+    # Structure of a data matrix file (three observations and three features)
     INDEX,obs-1,obs-2,obs-3
     feat-1,0,0,1
     feat-2,0,1,1
     feat-3,1,1,0
     
-    # Example with your data
+    # Example with your data (three observations and three features)
     ID,13724.OoVRE001.14062012,13724.OoVRE001.24062012,13724.OoVRE002.09082013
     AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCATAAAGGGCGCGTAGGTGGTCTGTTAAGTCAGATGTGAAATGTAAGGGCTCAACCCTTAACGTGCATCTGATACTGGCAGACTTGAGTGCGGAAGAGGCAAGTGGGATTCCTAG,0,0,0
     AACATAGGGGGCAAGCGTTGTCCGGAATCACTGGGCGTAAAGGGCGCGCAGGCGGTAAATTAAGTCAGGTGTGAAAGTTCGGGGCTCAACCCCGTGATTGCACCTGATACTGATAAACTAGAGTGTTGGAGAGGTAAGTGGAATTCCTAG,0,0,0
