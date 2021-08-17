@@ -178,31 +178,31 @@ Density plots are used to graphically how different or similar the values from t
     
 #### Balanced accuracy
 
-    # much better than what is expected by random chance
+    # The balanced accuracy is better than what is expected by random chance
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_balanced_accuracy_1-100_plot.png)    
     
 #### True positives
 
-    # much better than what is expected by random chance
+    # The TPs are better than what is expected by random chance
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TP_1-100_plot.png)
 
 #### True negatives
 
-    # around what is expected by random chance
+    # The TNs are around what is expected by random chance
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_TN_1-100_plot.png)
 
 #### False positives
 
-    # worse than what is expected by random chance
+    # The FPs are worse than what is expected by random chance
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FP_1-100_plot.png)
 
 #### False negatives
 
-    # better than what is expected by random chance
+    # The FNs are better than what is expected by random chance
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)
     
