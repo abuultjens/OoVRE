@@ -66,6 +66,8 @@ I have a script that I've written that iteratively splits the observations into 
     
 ## Running classifier with randomised target files
 
+In order to asses how impressive the balanced accuracy and confusion matrix is, an expectation for what we would get from random chance for this data and set of labels is needed. To do this the labels are randomly reassigned to observations and the same analysis as above is rerun. 
+
 ### WD
 
     /home/buultjensa/Nicole_Isles/rand_353_16s_presence-absence
@@ -83,7 +85,7 @@ I have a script that I've written that iteratively splits the observations into 
         python randomise_target.py target_353_cardiac_cc2-CASE-CONTROL.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv
     done    
     
-### Run the 100 random runs
+### Run the 100 random RFC runs
 
     for NUMBER in $(seq 1 100); do
         python RFC_replicator_CLASSIFICATION.py ../353_OoVRE_relative_freq_merged.csv target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}.csv RFC_data_353_16s_presence-absence.BIN-1_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all
@@ -91,20 +93,28 @@ I have a script that I've written that iteratively splits the observations into 
     
 ### Combine outfile data to make density plots 
 
+    # make balanced_accuracy combined outfile
     cat RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-*_COR-0.0_chi2-all_balanced_accuracy.csv > RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-1-100_COR-0.0_chi2-all_balanced_accuracy.csv
 
+    # make combined outfiles from the confusion matrix outfiles
     for NUMBER in $(seq 1 100); do
+        # make TN combined outfile
         TN=`cut -f 1 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
-        echo "${TP}" >> rand_353_16s_presence-absence_TP_1-100.csv
+        echo "${TP}" >> rand_353_16s_presence-absence_TP_1-100.csv       
+        # make TP combined outfile
         TP=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`       
-        echo "${TN}" >> rand_353_16s_presence-absence_TN_1-100.csv        
+        echo "${TN}" >> rand_353_16s_presence-absence_TN_1-100.csv          
+        # make FP combined outfile
         FP=`cut -f 2 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | head -1`
-        echo "${FP}" >> rand_353_16s_presence-absence_FP_1-100.csv
+        echo "${FP}" >> rand_353_16s_presence-absence_FP_1-100.csv        
+        # make FN combined outfile
         FN=`cut -f 1 -d ',' RFC_data_353_16s_presence-absence_target_353_cardiac_cc2-CASE-CONTROL_RAND-${NUMBER}_COR-0.0_chi2-all_confusion_matrix.csv | tail -1`        
         echo "${FN}" >> rand_353_16s_presence-absence_FN_1-100.csv
     done        
     
 ### Density plots
+
+Density plots are used to graphically how different or similar the values from the actual labes are from what is obtained by the random reshuffles. 
 
 #### Python script to generate density plots  
 
