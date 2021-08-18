@@ -219,13 +219,15 @@ There is a slight visual pattern that differes between the classes, with more re
     
 ### PCA on top features    
     
-I took the top 30 features from the above screenshot and ran PCA to reduce the dimentiallity. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). 
+I took the top 30 features from the above screenshot and ran PCA to reduce the dimentiallity. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). The cases are mixed within the controls, however there are some controls that sit out away from where the cases overlap.
 
-![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20.png) 
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am.png) 
+
+This two dimention reduction of the data is representing the interacting effects of the 30 top features and is a good representation to try to understand how a classifier is making its decisions. I have drawn two class decision zones on the PCA plot depicting how I think the RFC is defining it's class decision boundaries, given the confusion matrix we get with the actual labels.
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png) 
 
-
+Here, the zone aimed at capturing the cases does quite a good job, as the majority of cases are densly clustered together to the left, providing a high true positive count. This zone also captures a lot of controls, providing a high false positive count. The zone aimed at capturing the controls trys to contain as many controls as possible with few cases. In doing so it captures on the controls that are not overlapped with cases. This reduces the number of captured cases, providing low false negatives but provides low true negatives, as there are many controls overlapped by cases that this zone does not capture.
     
 ## Summary
 
