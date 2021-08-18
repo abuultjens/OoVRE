@@ -231,7 +231,7 @@ Here, the zone aimed at capturing the cases (red) does quite a good job, as most
     
 ## Summary
 
-The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of case and control and the features of 16s presence/absence. When looking at the features that best associate with the classes there is a slight pattern. Using the data there are some controls that can be distinguished from other controls and cases (that can't be distinguished from each other). 
+The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of case and control and the features of 16s presence/absence. When looking at the features that best associate with the classes there is a slight pattern. Using the data there are some controls that can be distinguished from other controls that are indistinguishable to cases. 
     
     
 
