@@ -211,7 +211,7 @@ Density plots are used to graphically show how different or similar the values f
     
 ## Investigating the features driving the model
 
-I used the binary allele frequencies to sort the features according the largest differences between the classes. Below is a screenshot of the top features ordered horizontally by observation class. The top row is coloured to denote the class (red is control and blue is case).
+I used the binary allele frequencies to sort the features according to the largest differences between the classes. Below is a screenshot of the top features ordered horizontally by observation class. The top row is coloured to denote the class (red = control and blue = case).
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-16%20at%205.38.22%20pm.png)
     
@@ -219,11 +219,11 @@ There is a slight visual pattern that differs between the classes, with more red
     
 ### PCA on top features    
     
-I took the top 30 features from the above screenshot and ran PCA to reduce the dimensionality. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). The cases are mixed within the controls, however there are some controls that sit out away from where the cases overlap.
+I took the top 30 features and ran PCA to reduce the dimensionality. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). The cases are mixed within the controls, however there are some controls that sit out away from where the cases overlap.
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am.png) 
 
-This two-dimension reduction of the data is representing the interacting effects of the 30 top features and is a good representation to try to understand how a classifier is making its decisions. I have drawn two class decision zones on the PCA plot depicting how I think the RFC is defining it's class decision boundaries, given the confusion matrix we get with the actual labels.
+This two-dimension reduction of the data is representing the interacting effects of the 30 top features and is a good graphic to try to understand how a classifier is making it's decisions. I have drawn two class decision zones on the PCA plot depicting how I think the RFC is defining it's class decision boundaries, given the confusion matrix we get with the actual labels.
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png) 
 
