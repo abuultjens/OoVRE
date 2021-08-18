@@ -211,11 +211,15 @@ Density plots are used to graphically show how different or similar the values f
     
 ## Investigating the features driving the model
 
-I used the binary allele frequencies to sort the features according the the largest differences between the clases.
+I used the binary allele frequencies to sort the features according the the largest differences between the clases. Below is a screenshot of the top features ordered horizontally by observation class. The top row is coloured to denote the class (red is control and blue is case).
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-16%20at%205.38.22%20pm.png)
     
+There is a slight visual pattern that differes between the classes, with more red (zero 16s count) in the cases class while more yellow to green in the control class (non-zero 16s count).    
+    
 ### PCA on top features    
+    
+I took the top 30 features from the above screenshot and ran PCA to reduce the dimentiallity. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control).
     
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png)    
     
