@@ -207,8 +207,7 @@ Density plots are used to graphically show how different or similar the values f
     # The FNs are better than what is expected by random chance
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)
-    
-    
+      
 ## Investigating the features driving the model
 
 I used the binary allele frequencies to sort the features according to the largest differences between the classes. Below is a screenshot of the top features ordered horizontally by observation class. The top row is coloured to denote the class (red = control and blue = case).
@@ -217,10 +216,6 @@ I used the binary allele frequencies to sort the features according to the large
     
 There is a slight visual pattern that differs between the classes, with more red (zero 16s count) in the cases class while more yellow to green in the control class (non-zero 16s count).
 
-![image](https://user-images.githubusercontent.com/7006916/129823595-c686f4b9-9f44-4ccf-ac62-094c8a8be69c.png)
-
-
-    
 ### PCA on top features    
     
 I took the top 30 features and ran PCA to reduce the dimensionality. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). The cases are mixed within the controls, however there are some controls that sit out away from where the cases overlap.
