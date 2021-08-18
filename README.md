@@ -211,27 +211,27 @@ Density plots are used to graphically show how different or similar the values f
     
 ## Investigating the features driving the model
 
-I used the binary allele frequencies to sort the features according the the largest differences between the clases. Below is a screenshot of the top features ordered horizontally by observation class. The top row is coloured to denote the class (red is control and blue is case).
+I used the binary allele frequencies to sort the features according the largest differences between the classes. Below is a screenshot of the top features ordered horizontally by observation class. The top row is coloured to denote the class (red is control and blue is case).
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-16%20at%205.38.22%20pm.png)
     
-There is a slight visual pattern that differes between the classes, with more red (zero 16s count) in the cases class while more yellow to green in the control class (non-zero 16s count).    
+There is a slight visual pattern that differs between the classes, with more red (zero 16s count) in the cases class while more yellow to green in the control class (non-zero 16s count).    
     
 ### PCA on top features    
     
-I took the top 30 features from the above screenshot and ran PCA to reduce the dimentiallity. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). The cases are mixed within the controls, however there are some controls that sit out away from where the cases overlap.
+I took the top 30 features from the above screenshot and ran PCA to reduce the dimensionality. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). The cases are mixed within the controls, however there are some controls that sit out away from where the cases overlap.
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am.png) 
 
-This two dimention reduction of the data is representing the interacting effects of the 30 top features and is a good representation to try to understand how a classifier is making its decisions. I have drawn two class decision zones on the PCA plot depicting how I think the RFC is defining it's class decision boundaries, given the confusion matrix we get with the actual labels.
+This two-dimension reduction of the data is representing the interacting effects of the 30 top features and is a good representation to try to understand how a classifier is making its decisions. I have drawn two class decision zones on the PCA plot depicting how I think the RFC is defining it's class decision boundaries, given the confusion matrix we get with the actual labels.
 
 ![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png) 
 
-Here, the zone aimed at capturing the cases does quite a good job, as the majority of cases are densly clustered together to the left, providing a high true positive count. This zone also captures a lot of controls, providing a high false positive count. The zone aimed at capturing the controls trys to contain as many controls as possible with few cases. In doing so it captures on the controls that are not overlapped with cases. This reduces the number of captured cases, providing low false negatives but provides low true negatives, as there are many controls overlapped by cases that this zone does not capture.
+Here, the zone aimed at capturing the cases (red) does quite a good job, as most cases are densely clustered together to the left, providing a high true positive count. However, due to the overlap of cases and controls in this section, the zone also captures a lot of controls, providing a high false positive count. The zone aimed at capturing the controls (green) try's to contain as many controls as possible with few cases. In doing so it focuses on capturing the controls that are not overlapped with cases. This zone placement reduces the number of cases captured, providing a low false negative count and low true negatives, as there are many controls overlapped by cases that are in the other zone (red). This is fitting with the good TP and FN and bad FP and TN counts from the actual labels vs the simulations with random labels.
     
 ## Summary
 
-The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. The next step is to investigate the model weights and find out what features are allowing the model to make better predictions with the actual labels compared to randomised labels.
+The fact that the balanced accuracy and several other values from the confusion matrix are different to what is expected from random chance indicate that there is an association between the labels of CASE and CONTROL and the features of 16s presence/absence. When looking at the features that best associate with the classes there is a slight pattern. Using the data there are some controls that can be distinguished from other controls and cases (that can't be distinguished from each other). 
     
     
 
