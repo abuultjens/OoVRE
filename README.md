@@ -219,9 +219,13 @@ There is a slight visual pattern that differes between the classes, with more re
     
 ### PCA on top features    
     
-I took the top 30 features from the above screenshot and ran PCA to reduce the dimentiallity. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control).
-    
-![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png)    
+I took the top 30 features from the above screenshot and ran PCA to reduce the dimentiallity. I plotted the first two principal components and coloured the points according to observation class (orange = case, blue = control). 
+
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20.png) 
+
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png) 
+
+
     
 ## Summary
 
