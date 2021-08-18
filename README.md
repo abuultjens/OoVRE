@@ -213,11 +213,11 @@ Density plots are used to graphically show how different or similar the values f
 
 I used the binary allele frequencies to sort the features according the the largest differences between the clases.
 
-![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-16%20at%205.38.22%20pm.png)
     
 ### PCA on top features    
     
-![Image description](https://github.com/abuultjens/OoVRE/blob/main/rand_353_16s_presence-absence_FN_1-100_plot.png)    
+![Image description](https://github.com/abuultjens/OoVRE/blob/main/Screen%20Shot%202021-08-18%20at%2010.02.35%20am%20copy.png)    
     
 ## Summary
 
